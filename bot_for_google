@@ -9,7 +9,7 @@
 // ==/UserScript==
 
 let keywords = ["Гобой","Как звучит флейта","Что такое валторна","Фагот","Скрипка","Виолончель"];
-let keyword = keywords[getRandom(0,keywords.lenght)];
+let keyword = keywords[getRandom(0,keywords.length)];
 
 function getRandom(min,max){
     return Math.floor(Math.random()*(max-min)+min);
