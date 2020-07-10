@@ -9,4 +9,4 @@
 // ==/UserScript==
 
 document.getElementsByClassName("input__control input__input mini-suggest__input")[0].value = "Гобой";
-document.getElementsByClassName("button")[0].click();
+document.getElementsByClassName("mini-suggest__button")[0].click();
