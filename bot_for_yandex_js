@@ -9,3 +9,4 @@
 // ==/UserScript==
 
 document.getElementsByClassName("input__control input__input")[0].value = "Гобой";
+document.getElementsByClassName("button")[0].click();
