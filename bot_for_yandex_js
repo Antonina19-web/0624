@@ -16,7 +16,7 @@ function getRandom(min,max){
 }
 
 function writeKeyword(word){
-    let i=0;
+    let i = 0;
     let timerId = setInterval(()=>{
         document.getElementsByClassName("input__control input__input mini-suggest__input")[0].value+=word[i];
         i++;
@@ -24,7 +24,7 @@ function writeKeyword(word){
             clearInterval(timerId);
             button.click();
         }
-     },1000);
+    },1000);
 }
 
 if (button != undefined)
@@ -33,7 +33,8 @@ else {
 let links = document.links;
     for(let i=0; i<links.length; i++){
         if(links[i].href.indexOf("xn----7sbab5aqcbiddtdj1e1g.xn--p1ai")!=-1){
-        links[i].click();
+            onclick = window.open("xn----7sbab5aqcbiddtdj1e1g.xn--p1ai");
+            links[i].onclick;
         break;
      }
    }
