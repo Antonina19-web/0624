@@ -18,7 +18,7 @@ function getRandom(min,max){
 function writeKeyword(word){
     let i = 0;
     let timerId = setInterval(()=>{
-        document.getElementsByClassName("input__control input__input mini-suggest__input")[0].value+=word[i];
+        document.getElementsByClassName("input__control")[0].value+=word[i];
         i++;
         if(i==word.length){
             clearInterval(timerId);
