@@ -1,16 +1,16 @@
 // ==UserScript==
-// @name         bot for google
+// @name         bot for yandex
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  try to take over the world!
 // @author       You
-// @match        https://www.google.com/*
+// @match        https://yandex.ru/*
 // @grant        none
 // ==/UserScript==
 
-let keywords = ["Гобой","Как звучит флейта","Тромбон","Что такое валторна","Фагот","Скрипка","Виолончель"];
+let keywords = ["Гобой","Как звучит флейта","Тромбон","Что такое валторна","Скрипка","Виолончель"];
 let keyword = keywords[getRandom(0,keywords.length)];
-let btnK = document.getElementsByName("btnK")[1];
+let button = document.getElementsByClassName("mini-suggest__button")[0];
 function getRandom(min,max){
     return Math.floor(Math.random()*(max-min)+min);
 }
@@ -18,23 +18,24 @@ function getRandom(min,max){
 function writeKeyword(word){
     let i = 0;
     let timerId = setInterval(()=>{
-    document.getElementsByName("q")[0].value+=word[i];
-    i++;
-    if(i==word.length){
-       clearInterval(timerId);
-       btnK.click();
-     }
+        document.getElementsByClassName("input__control input__input mini-suggest__input")[0].value+=word[i];
+        i++;
+        if(i==word.length){
+            clearInterval(timerId);
+            button.click();
+        }
     },1000);
 }
 
-if (btnK != undefined)
+if (button != undefined)
     writeKeyword(keyword);
 else {
 let links = document.links;
-for(let i=0; i<links.length; i++){
-    if(links[i].href.indexOf("xn----7sbab5aqcbiddtdj1e1g.xn--p1ai")!=-1){
-        links[i].click();
+    for(let i=0; i<links.length; i++){
+        if(links[i].href.indexOf("xn----7sbab5aqcbiddtdj1e1g.xn--p1ai")!=-1){
+            onclick = window.open("xn----7sbab5aqcbiddtdj1e1g.xn--p1ai");
+            links[i].onclick;
         break;
-      }
-    }
+     }
+   }
 }
