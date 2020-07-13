@@ -28,7 +28,7 @@ function writeKeyword(word){
        clearInterval(timerId);
        btnK.click();
      }
-   },1000);
+   },100);
 }
 
 if (btnK != undefined)
