@@ -41,7 +41,7 @@ else if (location.hostname == "yandex.ru"){
           break;
      }
    }
-    if (document.getElementsByClassName("pager__item")[2].textContent > 9){
+    if (document.getElementsByClassName("pager__item")[5].textContent > 9){
         flag = false;
         location.href = "https://yandex.ru/";
     }
