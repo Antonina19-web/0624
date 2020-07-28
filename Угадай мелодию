@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Угадай мелодию</title>
+    <style>
+      body{
+        background: url("img/guess_the_melody_bg.jpg");
+        background-size: cover;
+      }
+      .genre-btn{
+        width:5rem;
+        height:5rem;
+        background:Red;
+        cursor:pointer;
+        border:2px solid Black;
+        box-shadow:inset 0 0 6px 6px rgb(0,0,0,0.5);
+      }
+      .genre-btn:hover{
+        background:DarkRed;
+      }
+      .genre-btn:active{
+        background:Maroon;
+        box-shadow:inset 0 0 6px 6px rgb(0,0,0,0.5);
+      }
+      .genre-btn-group{
+        width:90%;
+        background:Cornsilk;
+        border-radius:2.5rem 2.5rem 2.5rem 2.5rem;
+      }
+      .genre-btn-group > span {
+        font-size:2.5rem;
+        margin-top:0.5rem;
+      }
+      #display{
+        width:70%;
+        border:13px;
+        background:Cornsilk;
+        color:black;
+        padding:0.75rem;
+        box-shadow:0 0 3px 3px rgb(0,0,0,0.5);
+        font-size:1.3rem;
+        border-radius:1.75rem 1.75rem 1.75rem 1.75rem;
+      }
+    </style>
+  </head>
+  <body>
+    <audio src="audio/song_1_1.mp3" id="getGenre_audio"></audio>
+    <audio src="audio/song_1_2.mp3" id="getGenre_audio"></audio>
+    <audio src="audio/song_1_3.mp3" id="getGenre_audio"></audio>
+    <audio src="audio/song_2_1.mp3" id="getGenre_audio"></audio>
+    <audio src="audio/song_2_2.mp3" id="getGenre_audio"></audio>
+    <audio src="audio/song_2_3.mp3" id="getGenre_audio"></audio>
+    <audio src="audio/song_3_1.mp3" id="getGenre_audio"></audio>
+    <audio src="audio/song_3_2.mp3" id="getGenre_audio"></audio>
+    <audio src="audio/song_3_3.mp3" id="getGenre_audio"></audio>
+    <audio src="audio/song_4_1.mp3" id="getGenre_audio"></audio>
+    <audio src="audio/song_4_2.mp3" id="getGenre_audio"></audio>
+    <audio src="audio/song_4_3.mp3" id="getGenre_audio"></audio>
+    <audio src="audio/song_5_1.mp3" id="getGenre_audio"></audio>
+    <audio src="audio/song_5_2.mp3" id="getGenre_audio"></audio>
+    <audio src="audio/song_5_3.mp3" id="getGenre_audio"></audio>
+    
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-6">
+          <div class="genre-btn-group row my-5">
+          <div class="rounded-circle genre-btn mr-3" onclick="chooseGenre('Джаз')"></div>
+          <span>Джаз</span>
+          </div>
+          <div class="genre-btn-group row my-5">
+          <div class="rounded-circle genre-btn mr-3" onclick="chooseGenre('Рок')"></div>
+          <span>Рок</span>
+          </div>
+          <div class="genre-btn-group row my-5">
+          <div class="rounded-circle genre-btn mr-3" onclick="chooseGenre('Электронная музыка')"></div>
+          <span>Электронная музыка</span>
+          </div>
+          <div class="genre-btn-group row my-5">
+          <div class="rounded-circle genre-btn mr-3" onclick="chooseGenre('Классика')"></div>
+          <span>Классика</span>
+          </div>
+          <div class="genre-btn-group row my-5">
+          <div class="rounded-circle genre-btn mr-3" onclick="chooseGenre('Регги')"></div>
+          <span>Регги</span>
+          </div>
+        </div>
+      <div class="col-6">
+       <div class="row">
+        <div class="col-6 text-center">
+         <div id="display">
+         <p id="display_text">Выберите жанр</p>
+      <div class="progress" hidden>
+           <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    
+    <script>
+    
+    let songs = ['song_1_1.mp3', 'song_1_2.mp3','song_1_3.mp3', 'song_2_1.mp3', 'song_2_2.mp3', 'song_2_3.mp3', 'song_3_1.mp3', 'song_3_2.mp3', 'song_3_3.mp3', 'song_4_1.mp3', 'song_4_2.mp3', 'song_4_3.mp3', 'song_5_1.mp3', 'song_5_2.mp3', 'song_5_3.mp3'];
+    let song = songs[getRandom(0,songs.length)];
+    function getRandom(min,max){
+      return Math.floor(Math.random()*(max-min)+min);
+    } 
+    try{
+      document
+    }
+    
+    
+    chooseGenre_audio.play();
+    chooseGenre_audio.pause();
+   /* let el = document.getElementById('genre-btn-group');
+      let playing = false; 
+      let player = new Audio('audio/brenda_lee_crazy_talk_j1_10.mp3');
+      player.preload = "auto";
+      player.addEventListener('ended', function(){
+        el.innerText = "Done";
+        playing = false;
+      });
+      el.addEventListener('click', playPause);
+      
+      function playPause() {
+        if( playing) {
+          player.pause();
+          el.innerText = "Paused";
+        } else {
+          player.play();
+          el.innerText = "Playing..";
+        }
+        playing = !playing;
+      } */
+      
+      /* let songs = document.querySelectorAll('audio[src$="0.mp3"]');
+      let progressBar = document.getElementsByClassName('progress-bar')[0];
+      function chooseGenre(name,number){
+        chooseGenre_audio.play();
+        chooseGenre_audio.pause();
+        display_text.innerHTML = "Песня " + name + " проигрывается...";
+      function getRandom(min,max){
+        return Math.random()*(max-min)+min; 
+      }
+      
+      for (let i=0; i<songs.length; i++){
+        songs[i].onmousedown = function(event){
+          let song = songs[i];  
+          
+      document.addEventListener('onclick') */
+    
+    /* letBtns = document.getElementsByClassName('genre-btn-group');
+    let value;
+    for(let i=0; i<Btns.length; i++){
+      Btns[i].onmousedown = function(event){
+        value = Btns[i]previousElementSibling.
+      })
+    } */
+      
+    /*   document.getElementById("chooseGenre").onclick = function()
+    {
+let myaudio = document.getElementById("getGenre_audio");
+      if(myaudio.paused == true)
+      {
+        document.getElementById("getGenre_audio").play();
+      }
+      else if (myaudio.paused == false)
+      {
+        document.getElementById("getGenre_audio").pause();
+      }
+    }  */
+      
+     /* let songs = document.querySelectorAll('song[src$="0.mp3"]');
+      let progressBar = document.getElementsByClassName('progress-bar')[0];
+      function chooseGenre(name,number){ */
+     
+     /* getGenre_audio.play();
+      getGenre_audio.pause(); */
+      
+    </script>
+   
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
